@@ -382,7 +382,7 @@ class Point(object):
         return math.sqrt(x_frag + y_frag)
 
     def __str__(self):
-        return "(" + self.x + ", " + self.y + ")"
+        return "({}, {})".format(x_frag, y_frag)
 
 a = Point(0.0, 0.0)
 b = Point(1.0, 1.0)

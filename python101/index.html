@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Introduction to Python, by DUCSS</title>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h1>Introduction to Python</h1>
+                    <p>
+                        <small>Created by <a href="http://twitter.com/IanConnolly">Ian Connolly</a> for <a href="http://ducss.ie">DUCSS</a> / Slides available on <a href="">GitHub</a></small>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>What Is Python?</h2>
+                    <p>
+                        <ul>
+                            <li class="fragment">General-purpose</li>
+                            <li class="fragment">Emphasises clarity and readability</li>
+                            <li class="fragment">Multi-paradigm</li>
+                            <li class="fragment">Dynamically typed</li>
+                        </ul>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Versioning</h2>
+                    <p>
+                        <ul>
+                            <li class="fragment">Two main versions: 2.7.x and 3.x</li>
+                            <li class="fragment">We'll be using 2.7.x</li>
+                            <li class="fragment">Don't worry about the difference for now</li>
+                        </ul>
+                    </p>
+
+                </section>
+
+                <section>
+                    <h2>Hello, world!</h2>
+<pre><code class="python" data-trim>
+print "Hello, world!"
+</code></pre>
+                    <p class="fragment">It's that easy!</p>
+                </section>
+
+                <section>
+                    <h2>Some math...</h2>
+<pre><code class="python" data-trim>
+4 + 4 # 8
+9 - 5 # 4
+10 * 5 # 50
+9 / 5 # 1
+9.0 / 5.0 # 1.8
+
+a = 4
+b = 5
+a - b # -1
+</code></pre>
+                <p class="fragment">Nothing too hairy yet!</p>
+                </section>  
+
+                <section>
+                    <h2>While we're commenting...</h2>
+<pre><code class="python" data-trim>
+4 + 4 # I'm an inline comment
+
+'''
+I'm a block comment!
+'''
+</code></pre>
+
+                </section>          
+                
+                <section>
+                    <h2>Truthiness</h2>
+<pre><code class="python" data-trim>
+True # True
+False # False
+
+bool(1) # True
+bool(0) # False
+bool("") # False
+bool("not an empty string") # True
+</code></pre>
+                </section>
+
+                <section>
+                    <h2>Truthiness pt. 2</h2>
+<pre><code class="python" data-trim>
+a = 4
+b = 5
+
+a == 4 # True
+a == b # False
+a != b # True
+a &lt; b # True
+a &gt; b # False
+b &lt;= 5 # True
+a &gt;= 3 # True
+</code></pre>
+                </section>
+
+                <section>
+                    <h2>Truthiness pt.3 </h2>
+<pre><code class="python" data-trim>
+if a == 4:
+    print "a is 4!"
+elif a == 5: 
+    print "a is 5!"
+else:
+    print "a isn't 4 or 5!"
+</code></pre>
+                <p class="fragment">Okay WHOA, what did we just do there?</p>                   
+                </section>
+
+                <section>
+                    <h2>Blocks o' code</h2>
+                    <p class="fragment">In Python, we delimit blocks of code with indentation<p>
+                    <p class="fragment">Python style guide says to use 4 spaces</p>
+                    <p class="fragment">You can use tabs too (Please don't)</p>
+                    <p class="fragment">Never, ever, ever, ever mix tabs and spaces in the same file</p>
+<pre><code class="python fragment" data-trim>
+if a == 4:
+    print "a is 4!"
+</code></pre>
+                </section>
+
+                <section>
+                    <h2>Loopy blocks</h2>
+<pre><code class="python fragment" data-trim>
+while True:
+    print "Looping forever!"
+</code></pre>
+<pre><code class="python fragment" data-trim>
+i = 0
+while i &lt; 10:
+    print i
+    i = i + 1
+</code></pre>
+                </section>
+
+                <section>
+                    <h2>Functions</h2>
+<pre><code class="python" data-trim>
+def my_function():
+    print "You called my function!"
+
+my_function() # You called my function!
+</code></pre>
+                </section>
+                <section>
+                    <h2>Classes, Objects and Methods</h2>
+<pre><code class="python" data-trim>
+class MyClass(object):
+
+    def my_method():
+        print "you called my method!"
+
+myobject = MyClass()
+myobject.my_method() # you called my method!
+</code></pre>
+                <p class="fragment">More on these later...</p>
+                </section>
+
+                <section>
+                    <h2>Lists</h2>
+<pre><code class="python" data-trim>
+a = ['spam', 'eggs', 100, 1234]
+a[0] # 'spam'
+a[-2] # 100
+
+a[2] = a[2] + 23 # 123
+a # ['spam', 'eggs', 123, 1234]
+
+len(a) # 4
+
+a[:2] # ['spam', 'eggs']
+</code></pre>
+                </section>
+
+                <section>
+                    <h2>More Lists</h2>
+<pre><code class="python" data-trim>
+a = [5] # [5]
+a.append(6) # a is [5, 6]
+a.extend([7, 5, 6]) # a is [5, 6, 7, 5, 6]
+a.count(5) # 2
+a.reverse() # a is [6, 5, 7, 6, 5]
+a.pop(6) # IndexError, a[6] does not exist
+a.remove(6) # a is [5, 7, 6, 5]
+5 in a # True
+10 not in a # True
+min(a) # 5
+max(a) # 7
+</code></pre>
+                <p class="fragment">Lists are <b>mutable</b></p>
+                <p class="fragment">Adding, deleting, reordering etc. affects the original list. <b>Not</b> a copy</p>
+                </section>
+                <section>
+                    <h2>Loopy lists</h2>
+<pre><code class="python fragment" data-trim>
+a = [3, 4, 5, 6]
+for item in a:
+    print a 
+</code></pre>
+
+<pre><code class="python fragment" data-trim>
+a = [3, 4, 5, 6]
+for index, item in enumerate(a):
+    print "Index is: " + index + "and item is: " + item
+</code></pre>
+                </section>
+
+                <section>
+                    <h2>Strings</h2>
+<pre><code class="python fragment" data-trim>
+name = "taylorswift"
+name.capitalize() # "Taylorswift"
+name # "taylorswift"
+</code></pre>
+                    <p class="fragment">Strings are <b>immutable</b></p>
+                    <p class="fragment">All String methods return a copy of the string, the original is unchanged</p>
+                    <p class="fragment">Lots of cool methods for checking, manipulating and splitting strings</p>
+                    <p class="fragment">We can slice strings too</p>
+<pre><code class="python fragment" data-trim>
+name[:4] # "tayl"
+</code></pre>
+
+                </section>
+                <section>
+                    <h2>Dictionaries</h2>
+                    <p class="fragment">Key -> Value pairs</p>
+<pre><code class="python fragment" data-trim>
+sprangbreak = {"selena":"gomez", "vanessa":"hudgens"}
+sprangbreak["selena"] # "gomez"
+"selena" in sprangbreak # True
+"james" in sprangbreak # False
+sprangbreak["james"] = "franco"
+"james" in sprangbreak # True
+sprangbreak[9] = True
+sprangbreak # {"selena":"gomez", "vanessa":"hudgens", "james":"franco", 9:True}
+</code></pre>
+                </section>
+
+                <section>
+                    <h2>Iterating dictionaries</h2>
+                    <div class="fragment">
+                        <p>Iterate a copy</p>
+<pre><code class="python" data-trim>
+for key in sprangbreak.keys():
+    print key
+
+for value in sprangbreak.values():
+    print value
+
+for key, value in sprangbreak.items():
+    print key, value
+</code></pre>
+                    </div>
+                    <div class="fragment">
+                        <p>Iterate the real thing</p>
+<pre><code class="python" data-trim>
+for key in sprangbreak.iterkeys():
+    print key
+
+for value in sprangbreak.itervalues():
+    print value
+
+for key, value in sprangbreak.iteritems():
+    print key, value
+</code></pre>
+                        <p class="fragment">Careful now, Ted.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Tuples</h2>
+                    <p class="fragment">Immutable data structure</p>
+<pre><code class="python" data-trim>
+a = (1.5, 2.7)
+
+x, y = a
+x # 1.5
+t # 2.7
+</code></pre>
+
+                </section>
+
+                <section>
+                    <h2>Functions pt.2</h2>
+<pre><code class="python fragment" data-trim>
+def my_function(a, b):
+    return a + b
+
+my_function(3, 4) # 7
+my_function("Hel", "lo") # "Hello"
+</code></pre>
+<pre><code class="python fragment" data-trim>
+def my_function(a, b=4):
+    return a + b
+
+my_function(3) # 7
+my_function("Hel") # TypeError: cannot concatenate 'str' and 'int' objects
+my_function("Hel", "lo") # "Hello"
+</code></pre>                   
+                </section>
+
+                <section>
+                    <h2>Importing</h2>
+<pre><code class="python" data-trim>
+import math
+math.sqrt(9) # 3.0
+
+import math as maths
+maths.sqrt(9) # 3.0
+
+from math import sqrt
+sqrt(9) # 3.0
+
+from math import sqrt as root
+root(9) # 3.0
+</code></pre>
+                </section>
+
+                <section>
+                    <h2>Classes, Objects and Methods pt. 2</h2>
+<pre><code class="python fragment" data-trim>
+class MyClass(object):
+    pass    # 'pass' tells Python that this is an empty block
+
+a = MyClass()
+a.x = 5
+a.y = 4
+a.z = a.x + a.y # 9
+</code></pre>
+                <p class="fragment">Yep, you can add to objects at runtime</p> 
+
+                </section>
+
+                <section>
+                    <h2>Classes, Objects and Methods pt. 3</h2>
+<pre><code class="python fragment" data-trim>
+import math 
+
+class Point(object):
+
+    def __init__(self, in_x, in_y):
+        self.x = in_x
+        self.y = in_y
+
+    def distance_to(self, other_point):
+        x_frag = math.pow(other_point.x - self.x, 2)
+        y_frag = math.pow(other_point.y - self.y, 2)
+        return math.sqrt(x_frag + y_frag)
+
+    def __str__(self):
+        return "(" + self.x + ", " + self.y + ")"
+
+a = Point(0.0, 0.0)
+b = Point(1.0, 1.0)
+print a # (0.0, 0.0)
+a.distance_to(b) # 1.41421...
+</code></pre>                   
+                </section>
+
+                <section>
+                    <h2>Pop quiz: What happens?</h2>
+<pre><code class="python" data-trim>
+a = Point(True, False)
+b = Point("Mean", "Girls")
+print a
+a.distance_to(b)
+</code></pre>
+                <p class="fragment">Duck typing means errors can pop up later than expected!</p>
+                <p class="fragment">How could we alter our code to make it turn up earlier?</p>
+                </section>
+
+                <section>
+                    <h2>Yer a wizard now, 'Arry</h2>
+                    <p class="fragment">Stuff like... __str__() and __init__() are <b>magic</b></p>
+                    <p class="fragment">We inherit them from object</p>
+                    <p class="fragment">As you explore Python you'll see their uses</p>
+                </section>
+
+                <section>
+                    <h2>Installing Python</h2>
+                    <p class="fragment">Already installed on OS X and Linux</p>
+                    <p class="fragment">Windows people can get it from python.org</p>
+                    <p class="fragment">OS X people should use Homebrew to get an up-to-date version</p>
+                    <p class="fragment">Both DUCSS and Netsoc servers have it installed</p>
+                </section>
+
+                <section>
+                    <h2>Running Python</h2>
+                    <p class="fragment">Open a terminal/cmd window and type "python"</p>
+                    <p class="fragment">This is a Python Read-Eval-Print Loop (REPL)</p>
+                    <p class="fragment">Really useful for interactive programming</p>
+                </section>
+
+                <section>
+                    <h2>Running Python pt.2 </h2>
+                    <p class="fragment">Typing "$ python my_file.py" will run my_file</p>
+                    <p class="fragment">Python will run the file, top to bottom.</p>
+                    <p class="fragment">By convention, as little as possible code is put at the top-level</p>
+                    <p class="fragment">We use a bit of 'magic' to simulate C/C++/Java main function</p>    
+<pre><code class="python fragment" data-trim>
+def main():
+    print "I am the main function"
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+                </section>
+
+                <section>  
+                    <h2>What can I do with this?</h2>
+                    <ul>
+                        <li class="fragment">Modern, dynamic web applications with Flask/Django</li>
+                        <li class="fragment">Games programming with PyGame</li>
+                        <li class="fragment">Desktop applications programming with PyGTK</li>
+                        <li class="fragment">Scientific programming with NumPy, SciPy and iPython</li>
+                        <li class="fragment">Your assignments!</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>What next?</h2>
+                    <p class="fragment">Introduction to Flask. Date TBA</p>
+                    <p class="fragment">Python Ireland</p>
+                    <p class="fragment">DUCSS in 4th Week</p>
+                </section>
+
+                <section>
+                    <h1>Questions?</h1>
+                </section>
+
+            </div>
+
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+
+        <script>
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>

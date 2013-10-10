@@ -89,7 +89,7 @@ a - b # -1
 
                 <section>
                     <h2>While we're commenting...</h2>
-<pre><code class="python" data-trim>
+<pre><code class="python fragment" data-trim>
 4 + 4 # I'm an inline comment
 
 '''
@@ -101,7 +101,7 @@ I'm a block comment!
                 
                 <section>
                     <h2>Truthiness</h2>
-<pre><code class="python" data-trim>
+<pre><code class="python fragment" data-trim>
 True # True
 False # False
 
@@ -114,7 +114,7 @@ bool("not an empty string") # True
 
                 <section>
                     <h2>Truthiness pt. 2</h2>
-<pre><code class="python" data-trim>
+<pre><code class="python fragment" data-trim>
 a = 4
 b = 5
 
@@ -130,7 +130,7 @@ a &gt;= 3 # True
 
                 <section>
                     <h2>Truthiness pt.3 </h2>
-<pre><code class="python" data-trim>
+<pre><code class="python fragment" data-trim>
 if a == 4:
     print "a is 4!"
 elif a == 5: 
@@ -169,7 +169,7 @@ while i &lt; 10:
 
                 <section>
                     <h2>Functions</h2>
-<pre><code class="python" data-trim>
+<pre><code class="python fragment" data-trim>
 def my_function():
     print "You called my function!"
 
@@ -178,10 +178,10 @@ my_function() # You called my function!
                 </section>
                 <section>
                     <h2>Classes, Objects and Methods</h2>
-<pre><code class="python" data-trim>
+<pre><code class="python fragment" data-trim>
 class MyClass(object):
 
-    def my_method():
+    def my_method(self):
         print "you called my method!"
 
 myobject = MyClass()
@@ -192,7 +192,7 @@ myobject.my_method() # you called my method!
 
                 <section>
                     <h2>Lists</h2>
-<pre><code class="python" data-trim>
+<pre><code class="python fragment" data-trim>
 a = ['spam', 'eggs', 100, 1234]
 a[0] # 'spam'
 a[-2] # 100
@@ -208,7 +208,7 @@ a[:2] # ['spam', 'eggs']
 
                 <section>
                     <h2>More Lists</h2>
-<pre><code class="python" data-trim>
+<pre><code class="python fragment" data-trim>
 a = [5] # [5]
 a.append(6) # a is [5, 6]
 a.extend([7, 5, 6]) # a is [5, 6, 7, 5, 6]
@@ -304,7 +304,7 @@ for key, value in sprangbreak.iteritems():
                 <section>
                     <h2>Tuples</h2>
                     <p class="fragment">Immutable data structure</p>
-<pre><code class="python" data-trim>
+<pre><code class="python fragment" data-trim>
 a = (1.5, 2.7)
 
 x, y = a
@@ -334,8 +334,33 @@ my_function("Hel", "lo") # "Hello"
                 </section>
 
                 <section>
+                    <h2>Functions pt. 3</h2>
+                    <p class="fragment">So we've seen how to pass parameters to function</p>
+<pre><code class="python fragment" data-trim>
+def my_function(a, b):
+    return a + b
+
+class MyObject(object):
+
+    def my_method(self, a, b):
+        return a + b
+</code></pre>
+                    <p class="fragment">We've passed ints, and strings, and 'self'...</p>
+                    <p class="fragment">What about another function?</p>
+<pre><code class="python fragment" data-trim>
+def add(a, b)
+    return a + b
+
+def my_function(a, b, in_function):
+    return in_function(a, b)
+
+my_function(3, 4, add) # 7
+</code></pre>
+                </section>
+
+                <section>
                     <h2>Importing</h2>
-<pre><code class="python" data-trim>
+<pre><code class="python fragment" data-trim>
 import math
 math.sqrt(9) # 3.0
 
@@ -393,7 +418,7 @@ a.distance_to(b) # 1.41421...
 
                 <section>
                     <h2>Pop quiz: What happens?</h2>
-<pre><code class="python" data-trim>
+<pre><code class="python fragment" data-trim>
 a = Point(True, False)
 b = Point("Mean", "Girls")
 print a

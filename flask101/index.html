@@ -40,6 +40,129 @@
                 </section>
 
                 <section>
+                    <h2>So what's this Flask thing?</h2>
+                    <ul>
+                        <li class="fragment">Flask is a microframework for developing web applications in Python</li>
+                        <li class="fragment">Built on top of Werkzeug</li>
+                        <li class="fragment">Uses Jinja2 for templating</li>
+                        <li class="fragment">Makes building for the web beautiful and easy</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>So what's this Flask thing? pt.2</h2>
+                    <ul>
+                        <li class="fragment">Micro means the core is simple and extensible</li>
+                        <li class="fragment">It does <strong>not</strong> mean that it lacks functionality</li>
+                        <li class="fragment">Doesn't make decisions for you regarding databases, ORMs, validation...</li>
+                        <li class="fragment">And any decision it does make is easily changed</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Hello, world!</h2>
+<pre><code class="python fragment" data-trim>
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello World!'
+
+if __name__ == '__main__':
+    app.run()
+</code></pre>
+                </section>
+
+                <section>
+                    <h2>Routing!</h2>
+                    <p class="fragment">URLs should be beautiful</p>
+                    <p class="fragment">Our web application should do different things depending on which URL the client hits</p>
+                    <p class="fragment">Flask's router allows us to map URLs to functions</p>
+<pre><code class="python fragment" data-trim>
+@app.route('/')
+def index():
+    return 'You hit the index!'
+
+@app.route('/hello')
+def hello():
+    return 'Hello to you too!'
+
+@app.route('/fetch')
+def fetch():
+    return 'Stop trying to make fetch happen, it's not going to happen'
+</code></pre>
+
+                </section>
+
+                <section>
+                    <h2>Routes &amp; Variables</h2>
+                    <p class="fragment">Often you want to return something slightly depending on input</p>
+                    <p class="fragment">Think of a profile page, generally the same - but the data is different for each user</p>
+<pre><code class="python fragment" data-trim>
+@app.route('/profile/<int:id>')
+def profile(id):
+    return 'Hey, user number: {}'.format(id)
+</code></pre>
+                </section>
+
+                <section>
+                    <h2>A quick aside... HTTP</p>
+                    <p class="fragment">HTTP is the Hypertext Transfer Protocol</p>
+                    <p class="fragment">It's the protocol that the web is built on</p>
+                    <p class="fragment">HTTP has things called <strong>methods</strong></p>
+                    <p class="fragment">It's the bit in the client's request that indicates what they want done</p>
+                    <p class="fragment">The most common are GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS</p>
+                    <p class="fragment">A server can do different things at a URL depending on the HTTP method</p>
+                    <p class="fragment">It can do whatever it wants, but best practice says we follow the proper HTTP semantics</p>
+                </section>
+
+                <section>
+                    <h2>Routes &amp; Methods</h2>
+                    <p class="fragment">Flask lets us specify what methods our route is defined for</p>
+<pre><code class="python fragment" data-trim>
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        do_the_login()
+    else:
+        show_the_login_form()
+</code></pre>
+                    <p class="fragment">The request object lets us get at the data the client sent to us</p>                  
+                </section>
+
+                <section>
+                    <h2>Routes &amp; Methods p2.</p>
+                    <p class="fragment">That last example works, but it's not very <em>Pythonic</em></p>
+                    <p class="fragment">What if we have a load of allowed methods? We'll have a lot of if/elses</p>
+                    <p class="fragment">It kind of makes our controller a controller of controllers (Yo dawg)</p>
+                    <p class="fragment">Let's fix it!</p>
+<pre><code class="python fragment" data-trim>
+@app.route('/login', methods=['POST'])
+def login_user():
+    # login logic
+
+@app.route('/login', methods=['GET'])
+def get_login_form():
+    # form logic
+</code></pre>
+                </section>
+
+                <section>
+                    <h2>Show me a web page already!</h2>
+                    <p class="fragment">A lot of web applications are built for web browsers</p>
+                    <p class="fragment">Web pages are built with HTML (So's this presentation funnily enough)</p>
+                    <p class="fragment">But how web pages look changes depending on data. My profile page looks different to yours</p>
+                    <p class="fragment">Flask lets us pull the data out of our page and we're left with a <strong>template</strong></p> 
+                </section>
+
+                <section>
+                    <h2>Templates</h2>
+
+                </section>
+
+
+                <section>
                     <h1>Questions?</h1>
                 </section>
 

@@ -230,15 +230,34 @@ curl http://httpbin.org/user-agent
 
                 <section>
                     <h2>Flask, HTTP APIs and JSON</h2>
-                    <p class="fragment">Flask is <strong>perfect</strong> for building HTTP APIs</h2>
+                    <p class="fragment">Flask is <strong>perfect</strong> for building HTTP APIs</p>
+                    <p class="fragment">It makes no assumptions about where we get our data, only about when we return it</p>
+                    <p class="fragment">Let's return some JSON from our application</p>
+<pre><code class="python fragment" data-trim>
+from flask import jsonify
 
+@app.route('/hello/&lt;name&gt;', methods=['GET'])
+def hello(name):
+    to_return = {"your_name_is": name}
+    return jsonify(to_return)
+</code></pre>
+                    <p class="fragment">And that's all we need to do to transform a dictionary into JSON</p>
                 </section>
 
+                <section>
+                    <h2>Talking but not listening</h2>
+                    <p class="fragment">Being able to return JSON is all well and good</p>
+                    <p class="fragment">But our API needs to be able to <em>receive</em> data too</p>
+                    <p class="fragment">Remember we did this earlier?</p>
+<pre><code class="python fragment" data-trim>
+if request.method == 'POST':
+        do_the_login()
+</code></pre>  
+                    <p class="fragment">Let's talk about the request object</p>   
+                </section>
 
                 <section>
-                    <h2>Is that it?</h2>
-                    <p class="fragment">Yep! Well, sort of</p>
-                    <p class="fragment">
+                    <h2>The Flask Request Object</h2>
                 </section>
                 <section>
                     <h1>Questions?</h1>

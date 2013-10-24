@@ -107,7 +107,7 @@ def profile(id):
                 </section>
 
                 <section>
-                    <h2>A quick aside... HTTP</p>
+                    <h2>A quick aside... HTTP</h2>
                     <p class="fragment">HTTP is the Hypertext Transfer Protocol</p>
                     <p class="fragment">It's the protocol that the web is built on</p>
                     <p class="fragment">HTTP has things called <strong>methods</strong></p>
@@ -160,7 +160,6 @@ def get_login_form():
                     <h2>Templates</h2>
                     <p class="fragment">Flask uses a library called Jinja2 for templating</p>
                     <p class="fragment">You can change that fairly easily if you want</p>
-                </section>
 <pre><code class="html fragment" data-trim>
 &lt;title&gt;Hello from Flask&lt;/title&gt;
 {% if name %}
@@ -178,6 +177,7 @@ from flask import render_template
 def hello(name=None):
     return render_template('hello.html', name=name)
 </code></pre>
+                </section>
                 <section>
                     <h1>Questions?</h1>
                 </section>

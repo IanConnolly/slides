@@ -199,6 +199,22 @@ def hello(name=None):
                 </section>
 
                 <section>
+                    <h2>JSON pt.2</h2>
+<pre><code class="javascript fragment" data-trim>
+{
+    "id": 1,
+    "name": "Foo",
+    "price": 123,
+    "tags": [ "Bar", "Eek" ],
+    "stock": {
+        "warehouse": 300,
+        "retail": 20
+    }
+}
+</code></pre>
+                </section>
+
+                <section>
                     <h2>Consuming an API</h2>
                     <p class="fragment">http-bin is an API built by Python legend Kenneth Reitz (in Flask!)</p>
                     <p class="fragment">It's useful for returning information about HTTP requests</p>

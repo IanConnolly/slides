@@ -90,7 +90,7 @@ def hello():
 
 @app.route('/fetch')
 def fetch():
-    return 'Stop trying to make fetch happen, it's not going to happen'
+    return "Stop trying to make fetch happen, it's not going to happen"
 </code></pre>
 
                 </section>
@@ -100,7 +100,7 @@ def fetch():
                     <p class="fragment">Often you want to return something slightly depending on input</p>
                     <p class="fragment">Think of a profile page, generally the same - but the data is different for each user</p>
 <pre><code class="python fragment" data-trim>
-@app.route('/profile/<int:id>')
+@app.route('/profile/&lt;int:id&gt;'')
 def profile(id):
     return 'Hey, user number: {}'.format(id)
 </code></pre>

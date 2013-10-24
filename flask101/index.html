@@ -184,7 +184,7 @@ def hello(name=None):
                     <p class="fragment">The Web isn't just for web browsers</p>
                     <p class="fragment">HTTP is very popular for APIs too</p>
                     <p class="fragment">API is an Application Programming Interface</p>
-                    <p class="fragment">It's the interface that two separate systems communicate</p>
+                    <p class="fragment">It's how outside systems can communicate with ours</p>
                     <p class="fragment">We can use URLs and HTTP methods to build APIs for devices and programs</p>
                     <p class="fragment">But we need a data interchange format so we can format our data for machine consumption...</p>
                 </section>
@@ -219,7 +219,7 @@ def hello(name=None):
                     <p class="fragment">http-bin is an API built by Python legend Kenneth Reitz (in Flask!)</p>
                     <p class="fragment">It's useful for returning information about HTTP requests</p>
                     <p class="fragment">This information is great for debugging our APIs</p>
-                    <p class="fragment">Let's use cURL to make a request to http-bin and ask it to return our user-agent</p>
+                    <p class="fragment">We'll use cURL to make a request to http-bin and ask it to return our user-agent</p>
 <pre><code class="bash fragment" data-trim>
 curl http://httpbin.org/user-agent
 </code></pre>
@@ -232,7 +232,7 @@ curl http://httpbin.org/user-agent
                     <h2>Flask, HTTP APIs and JSON</h2>
                     <p class="fragment">Flask is <strong>perfect</strong> for building HTTP APIs</p>
                     <p class="fragment">It makes no assumptions about where we get our data, only about when we return it</p>
-                    <p class="fragment">Let's return some JSON from our application</p>
+                    <p class="fragment">Now to return some JSON from our application</p>
 <pre><code class="python fragment" data-trim>
 from flask import jsonify
 

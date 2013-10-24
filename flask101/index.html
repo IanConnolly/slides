@@ -178,6 +178,52 @@ def hello(name=None):
     return render_template('hello.html', name=name)
 </code></pre>
                 </section>
+
+                <section>
+                    <h2>The Programmatic Web (APIs)</h2>
+                    <p class="fragment">The Web isn't just for web browsers</p>
+                    <p class="fragment">HTTP is very popular for APIs too</p>
+                    <p class="fragment">API is an Application Programming Interface</p>
+                    <p class="fragment">It's the interface that two separate systems communicate</p>
+                    <p class="fragment">We can use URLs and HTTP methods to build APIs for devices and programs</p>
+                    <p class="fragment">But we need a data interchange format so we can format our data for machine consumption...</p>
+                </section>
+
+                <section>
+                    <h2>JSON</h2>
+                    <p class="fragment">JavaScript Object Notation</p>
+                    <p class="fragment">Lightweight, human-readable, key-&gt;value data format</p>
+                    <p class="fragment">Looks like a JavaScript object, but it's just text</p>
+                    <p class="fragment">Maps very well to a Python dictionary</p>
+                    <p class="fragment">Taking over from XML (Praise the good lord)</p>
+                </section>
+
+                <section>
+                    <h2>Consuming an API</h2>
+                    <p class="fragment">http-bin is an API built by Python legend Kenneth Reitz (in Flask!)</p>
+                    <p class="fragment">It's useful for returning information about HTTP requests</p>
+                    <p class="fragment">This information is great for debugging our APIs</p>
+                    <p class="fragment">Let's use cURL to make a request to http-bin and ask it to return our user-agent</p>
+<pre><code class="bash fragment" data-trim>
+curl http://httpbin.org/user-agent
+</code></pre>
+<pre><code class="javascript fragment" data-trim>
+{"user-agent": "curl/7.19.7 (universal-apple-darwin10.0) libcurl/7.19.7 OpenSSL/0.9.8l zlib/1.2.3"}
+</code></pre>
+                </section>
+
+                <section>
+                    <h2>Flask, HTTP APIs and JSON</h2>
+                    <p class="fragment">Flask is <strong>perfect</strong> for building HTTP APIs</h2>
+
+                </section>
+
+
+                <section>
+                    <h2>Is that it?</h2>
+                    <p class="fragment">Yep! Well, sort of</p>
+                    <p class="fragment">
+                </section>
                 <section>
                     <h1>Questions?</h1>
                 </section>

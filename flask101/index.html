@@ -258,7 +258,51 @@ if request.method == 'POST':
 
                 <section>
                     <h2>The Flask Request Object</h2>
+<pre><code class="python fragment" data-trim>
+from flask import request
+</code></pre> 
+                    <p class="fragment">Contains all the information about the current HTTP request we're responding to</p>
+<pre><code class="python fragment" data-trim>
+@app.route('/', methods['GET', 'POST'])
+def index():
+    request.method # 'GET' or 'POST'
+</code></pre>
+                    <p class="fragment">We've seen this one already</p>
+<pre><code class="python fragment" data-trim>
+# http://ourapplication.com/hello?name=taylorswift
+@app.route('/hello')
+def hello():
+    request.args["name"] # taylorswift
+</code></pre>
+                    <p class="fragment">A Dict-like object containing the URL arguments</p>
+<pre><code class="python fragment" data-trim>
+@app.route('/')
+def index():
+    username = request.cookies.get('username') # Get the cookies
+</code></pre>
+                    <p class="fragment">A dict with the request's cookies</p>
+                    <p class="fragment">Whew, okay, that was all fairly self-explanatory</p>             
                 </section>
+
+                <section>
+                    <h2>That's nice, Ian. But where's my JSON?</h2>
+                    <p class="fragment">You get one guess... </p>
+<pre><code class="python fragment" data-trim>
+@app.route('/', methods=['POST', 'PUT'])
+def index():
+    json = request.json # Yep, that was easy
+</code></pre>
+                    <p class="fragment">But don't do that</p>
+                    <p class="fragment">A lot of things can go wrong when parsing JSON</p>
+                    <p class="fragment">Luckily, @mitsuhiko has done all the hard work for us</p>
+<pre><code class="python fragment" data-trim>
+@app.route('/', methods=['POST', 'PUT'])
+def index():
+    json = request.get_json() # only if the request's mimetype is application/json
+    json = request.get_json(force=True) # attempt to parse even if the client didn't set the correct mimetype
+</code></pre>
+                </section>
+                    
                 <section>
                     <h1>Questions?</h1>
                 </section>

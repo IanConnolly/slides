@@ -302,7 +302,62 @@ def index():
     json = request.get_json(force=True) # attempt to parse even if the client didn't set the correct mimetype
 </code></pre>
                 </section>
+
+                <section>
+                    <h2>Response codes</h2>
+<pre><code class="python fragment" data-trim>
+@app.route('/', methods=['POST', 'PUT'])
+def index():
+    user = User.create(request.get_json())
+    return "Created user id={}".format(user.id), 201
+</code></pre>
+                </section>
+
+                <section>
+                    <h2>Flask response object</h2>
+<pre><code class="python fragment" data-trim>
+from flask import Response
+</code></pre>
+                    <p class="fragment">The reverse of the request object</p>
+                    <p class="fragment">Let's us set cookies, headers, response codes etc. explicitly</p>
+                    <p class="fragment">We just return one from our controller to respond</p>
+<pre><code class="python fragment" data-trim>
+@app.route('/', methods=['GET'])
+def index():
+    response = Response()
+    response.set_cookie(key="key", value="value")
+    return repsonse
+</code></pre>
+
+                </section>
+
+                <section>
+                    <h1>And now for something completely differently</h1>
+                </section>
+
+                <section>
+                    <h2>Service Oriented Architecture</h2>
+                    <p class="fragment">Basically...</p>
+                    <ul>
+                        <li class="fragment">The UNIX philosophy applied to systems</li>
+                        <li class="fragment">Split your application into small, discrete parts</li>
+                        <li class="fragment">Have them communicate with clear APIs (JSON!)</li>
+                        <li class="fragment">Allows you to develop, test, deploy, scale and replace modularly</li>
+                    </ul>
+                    <p class="fragment">Small Flask apps are <em>ideal</em> for building services</p>
+
+                </section>
                     
+                <section>
+                    <h2>What next?</h2>
+                    <ul>
+                        <li class="fragment">Get data from a database (SQLAlchemy, flask-sqlalchemy)</li>
+                        <li class="fragment">Validate forms (WTForms, flask-wtforms)</li>
+                        <li class="fragment">And so on... Batteries not included</li>
+                        <li class="fragment">But lets you use the best batteries for the job</li>
+                    </ul>
+                </section>
+
                 <section>
                     <h1>Questions?</h1>
                 </section>

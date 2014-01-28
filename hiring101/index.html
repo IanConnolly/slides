@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Introduction to Flask, by DUCSS</title>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h1>Hiring CS Students</h1>
+                    <p>
+                        <small>Created by <a href="http://twitter.com/IanConnolly">Ian Connolly</a> for <a href="http://ducss.ie">DUCSS</a> / Slides available on <a href="http://nsno.github.io/slides/flask101/">GitHub</a></small>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>So what's the problem?</h2>
+                    <ul>
+                        <li class="fragment">You need engineers</li>
+                        <li class="fragment">Engineers are hard to find</li>
+                        <li class="fragment">CS students like to hide</li>
+                        <li class="fragment">Right now is a great example</li>
+                    </ul>
+                </section>
+
+                <section>
+                  <h2>Why do we hide?</h2>
+                  <ul>
+                    <li class="fragment">CS is really hard</li>
+                    <li class="fragment">Computers continually make us feel stupid</li>
+                    <li class="fragment">Many CS students take this to heart and feel they aren't up to it</li>
+                    <li class="fragment">This is called Imposter Syndrome</li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h2>Finding engineers</h2>
+                  <ul>
+                    <li class="fragment">DUCSS FB Group</li>
+                    <li class="fragment">Our mailing list this week</li>
+                    <li class="fragment">Tech meetups</li>
+                    <li class="fragment">Wider network</li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h2>Identifying skills you need</h2>
+                  <ul>
+                    <li class="fragment">What is your <b>actual</b> product?</li>
+                    <li class="fragment">Designer, front-end, back-end, mobile</li>
+                    <li class="fragment">How much can you get away with <b>not</b> doing?</li>
+                    <li class="fragment">How much can you get away with doing yourself?</li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h2>Evaluating potential engineers</h2>
+                  <ul>
+                    <li class="fragment">Ignore their degree. College doesn't matter.</li>
+                    <li class="fragment">What side-projects have they built?</li>
+                    <li class="fragment">What companies have they worked for? Have they worked with a modern company?</li>
+                    <li class="fragment">Are they capable of leading?</li>
+                 </ul>
+                </section>
+
+                <section>
+                  <h2>Staying in touch with tech</h2>
+                    <ul>
+                    <li class="fragment">Reddit, Hacker News, Twitter</li>
+                    <li class="fragment">Irish tech meetups</li>
+                    <li class="fragment">Learning to code</li>
+                  </ul>
+                </section>
+
+
+                <section>
+                    <h1>Questions?</h1>
+                </section>
+
+            </div>
+
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+
+        <script>
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>

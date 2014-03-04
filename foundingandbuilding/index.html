@@ -178,7 +178,7 @@
                     <h2>The Web</h2>
                     <ul>
                         <li class="fragment">'The Web' is a system of protocols and standards built on the Internet</li>
-                        <li class="fragment">Computers request documents from each other to view</li>
+                        <li class="fragment">Computers request documents (HTML, CSS and JS) from each other to view</li>
                         <li class="fragment">Documents are written in HTML</li>
                         <li class="fragment">Viewed in a web-browser</li>
                         <li class="fragment">Traditional view of the web, getting a bit more complicated now</li>
@@ -233,21 +233,53 @@
     z-index: 10;
     line-height: 1.2em;
     font-weight: normal;
-}
-</code>
-</pre>
-                </section>
+}</code></pre></section>
 
                 <section>
                     <h2>JavaScript</h2>
+                    <ul>
+                        <li class="fragment">The programming language of the web</li>
+                        <li class="fragment">The server sends it to your browser, which runs it</li>
+                        <li class="fragment">Previously only used for animating the page because it was 'slow'</li>
+                        <li class="fragment">Now it's used for so much more</li>
+                    </ul>
                 </section>
 
                 <section>
                     <h2>JavaScript (Pt. 2)</h2>
+                    <ul>
+                        <li class="fragment">Before: Web Browsers request new documents on each 'page'</li>
+                        <li class="fragment">Now (sometimes): One 'page', JavaScript requests updated assets</li>
+                        <li class="fragment">Single-Page Application (think Twitter, Facebook)</li>
+                        <li class="fragment">Also other complex things like chat, payments, games (entire engines!)</li>
+                    </ul>
+                </section>
+
+                <section>
+<pre><code class="javascript fragment" data-trim>
+function factorial(n) {
+    if (n == 0 || n == 1) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+<code></pre>
                 </section>
 
                 <section>
                     <h2>Back-ends</h2>
+                    <ul>
+                        <li class="fragment">The web server is running a computer program to respond to requests</li>
+                        <li class="fragment">These can be simple or really complicated, depending on your requirements</li>
+                        <li class="fragment">In StartupLand, most popular languages are Ruby, JavaScript (Node.js) and Python</li>
+                        <li class="fragment">Built using frameworks, Rails/Sinatra (for Ruby), Django/Flask (for Python), Express (for JS)</li>
+                        <li class="fragment">Huge amount of resources, especially for non-technical people, for learning Rails</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Other buzzwords</h2>
                 </section>
 
                 <section>

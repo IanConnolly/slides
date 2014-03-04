@@ -202,6 +202,7 @@
     <ul>
         <li class="fragment">Decribes the <strong>layout</strong> of the page</li>
         <li class="fragment">Nested tree of elements</li>
+        <li class="fragment">Elements have <em>semantics</em>, they mean things</li>
         <li class="fragment">Layout means the relationship between the elements</li>
         <li class="fragment"><strong>Not</strong> their position on the page</li>
     </ul>
@@ -213,15 +214,28 @@
                 <section>
                     <h2>CSS (Cascading Stylesheets)</h2>
                     <ul>
-                        <li class="fragment"></li>
-                        <li class="fragment"></li>
-                        <li class="fragment"></li>
-                        <li class="fragment"></li>
+                        <li class="fragment">Describes the <strong>style</strong> of the page</li>
+                        <li class="fragment">Positioning, size, colour etc.</li>
+                        <li class="fragment">Select an individual element by <strong>id</strong></li>
+                        <li class="fragment">Select a group of elements by <strong>class</strong></li>
                     </ul>
                 </section>
 
                 <section>
+<pre><code class="css fragment" data-trim>
+.reveal .slides>section,
+.reveal .slides>section>section {
+    display: none;
+    position: absolute;
+    width: 100%;
+    padding: 20px 0px;
 
+    z-index: 10;
+    line-height: 1.2em;
+    font-weight: normal;
+}
+</code>
+</pre>
                 </section>
 
                 <section>
@@ -242,6 +256,10 @@
 
                 <section>
                     <h2>Faking it (Pt. 2)</h2>
+                </section>
+
+                <section>
+                    <h2>Resources</h2>
                 </section>
 
                 <section>

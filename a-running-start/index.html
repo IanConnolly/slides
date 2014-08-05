@@ -70,6 +70,43 @@
                     <section>
                         <h2>Background</h2>
                     </section>
+                    <section>
+                        <p>Mozilla Release Engineering is responsible for our build, test, and release infrastructure and automation.</p>
+                    </section>
+                    <section>
+                        <img src="http://www.chesnok.com/daily/wp-content/uploads/2014/05/releng-flow-onepage.png" alt="Mother of all diagrams"/>
+                    </section>
+                    <section>
+                        <p>We use <b>Buildbot</b> to automate our build/test/release cycles</p>
+                    </section>
+                    <section>
+                        <h4>Buildbot</h4>
+                        <ul>
+                            <li class="fragment">Defines the process of a job</li>
+                            <li class="fragment">Schedules jobs</li>
+                            <li class="fragment">Assigns slaves jobs</li>
+                            <li class="fragment">Manages job on slave</li>
+                            <li class="fragment">Reports status back of a job</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h4>Lifecycle of a build slave</h4>
+                    </section>
+
+                    <section>
+                        <h4>The Rebooting Problem</h4>
+                        <ul>
+                            <li class="fragment">We lose the filesystem cache</li>
+                            <li class="fragment">Wasted reboot time</li>
+                            <li class="fragment">Load on puppet masters</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <p>We need to stop rebooting</p>
+                        <p class="fragment">Enter <b>Runner</b></p>
+                    </section>
                 </section>
 
                 <section>
@@ -96,6 +133,10 @@
                     </section>
                     <section>
                         <h4>We work at <b>SCALE</b></h4>
+                        <div class="fragment">
+                            <img src="http://2.bp.blogspot.com/-eWWyKh3Yhq8/U8mQTQyZDtI/AAAAAAAAEIE/IMHQ8Vf6dfs/s1600/Screen+Shot+2014-07-18+at+5.16.07+PM.png"/>
+                            <span style="float:right;"><p style="float:right;font-size:small;">Thanks, Kim!</p></span>
+                        </div>
                     </section>
                     <section>
                         <h4>Resources</h4>
@@ -108,13 +149,15 @@
                 </section>
 
                 <section>
-                    <h2>Questions?</h2>
+                    <h4>Thanks!</h4>
+                    <img class="fragment" src="http://31.media.tumblr.com/d9f68ab5af39ba4069b62673cb4ec024/tumblr_n4vvcdf7cN1r8b80xo1_500.jpg" alt="Red panda!"/>
+                    <p class="fragment">Especially to Hal Wine, Chris Atlee, Dustin Mitchell, Jill Alvarez, Misty Orr, and everybody at Moz Releng</p>
                 </section>
 
                 <section>
-                    <h4>Thanks!</h4>
-                    <img class="fragment" src="http://31.media.tumblr.com/d9f68ab5af39ba4069b62673cb4ec024/tumblr_n4vvcdf7cN1r8b80xo1_500.jpg" alt="Red panda!"/>
+                    <h2>Questions?</h2>
                 </section>
+
 
             </div>
 

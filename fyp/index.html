@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Distributing Computation in Haskell</title>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/mozilla.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h2>Distributing Computation in Haskell</h2>
+                    <p>
+                        <small>Created by <a href="http://twitter.com/IanConnolly">Ian Connolly</a> / Slides available on <a href="https://github.com/IanConnolly/slides/tree/gh-pages/fyp">GitHub</a></small>
+                    </p>
+                </section>
+                <section>
+                    <p>Hi, I'm Ian</p>
+                    <p class="fragment">I've been working on libraries for cloud computing in Haskell</p>
+                    <p class="fragment">Specifically I've been working on getting Cloud Haskell working on AWS</p>
+                    <p class="fragment">As well as trying to show why Haskell, public clouds, and Cloud Haskell are a great fit.</p>
+                </section>
+                <section>
+                    <h3>The Plan</h3>
+                    <ul>
+                        <li class="fragment">Intro to Haskell</li>
+                        <li class="fragment">Intro to Cloud Haskell</li>
+                        <li class="fragment">Overview of my FYP</li>
+                        <li class="fragment">Demo</li>
+                        <li class="fragment">Some motivation &amp; reflection</li>
+                    </ul>
+                </section>
+                <section>
+                    <section>
+                        <h2>Haskell</h2>
+                    </section>
+                    <section>
+                        <h3>The Basics</h3>
+                        <p class="fragment">Haskell is a: </p>
+                        <ul>
+                            <li class="fragment">Purely functional</li>
+                            <li class="fragment">Lazy</li>
+                            <li class="fragment">Strongly and statically typed</li>
+                        </ul>
+                        <p class="fragment">... programming language.</p>
+                    </section>
+                    <section>
+                        <h3>The Basics pt. 2</h3>
+                        <p class="fragment"><i>Purely functional</i> means that functions have no side-effects in Haskell*</p>
+                        <p class="fragment"><i>Lazy</i> semantics mean functions are evaluated only to the extent required by a caller</p>
+                        <p class="fragment"><i>Strongly and statically typed</i> means a program's types are checked at compile-time with no coercion</p>
+                    </section>
+                    <section>
+                        <h3>Quicksort</h3>
+<pre><code class="haskell fragment" data-trim>
+quicksort :: Ord a => [a] -> [a]
+quicksort []     = []
+quicksort (p:xs) = (quicksort lesser) ++ [p] ++ (quicksort greater)
+where
+    lesser  = filter (< p) xs
+    greater = filter (>= p) xs
+</code></pre>
+                    </section>
+                    <section>
+                        <h3>Advantages</h3>
+                        <ul>
+                            <li class="fragment">Idiomatic Haskell is easy to understand</li>
+                            <li class="fragment">Concise</li>
+                            <li class="fragment">The type system is your best friend</li>
+                            <li class="fragment">Composition, not hierarchy</li>
+                            <li class="fragment">Speed</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Why Haskell in the Cloud?</h3>
+                        <ul>
+                            <li class="fragment">Haskell gives a unique combination of safety and abstraction</li>
+                            <li class="fragment">Functional languages encourage the 'right' architecture for distribution (eg. MapReduce)</li>
+                            <li class="fragment">Haskell's constraints lead to novel programs</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Cloud Haskell</h2>
+                    </section>
+                    <section>
+                        <p><i>Cloud Haskell is a domain-specific language for developing
+programs for a distributed computing environment, shallowly embedded in Haskell, providing a message-passing communication model.</i></p>
+                    </section>
+                    <section>
+                        <h3>Features</h3>
+                        <ul>
+                            <li class="fragment">Erlang-inspired message passing</li>
+                            <li class="fragment">Serialising (some) function closures across networks</li>
+                            <li class="fragment">Compatible with existing shared memory concurrency</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <p>In short, trying to leverage the best of Haskell and Erlang</p>
+                    </section>
+                    <section>
+                        <h3>Let's break it down</h3>
+                    </section>
+                    <section>
+                        <p>Cloud Haskell programs are made up of: </p>
+                        <ul>
+                            <li class="fragment">Processes</li>
+                            <li class="fragment">Channels &amp; Messages</li>
+                            <li class="fragment">Process monitoring, management, and init abstractions</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Some points</h3>
+                        <ul>
+                            <li class="fragment">Processes can run anywhere (including forkIO!)</li>
+                            <li class="fragment">The programmer builds their program out of processes communicating via channels.</li>
+                            <li class="fragment">Only in the main IO code do they deal with the service provider.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <img src="images/ch.png" alt="cloud haskell" height="500"/>
+                    </section>
+                    <section>
+                        <h3>Echo in Cloud Haskell</h3>
+<pre><code class="haskell fragment" data-trim>
+echoRemote :: () -> Backend -> Process ()
+echoRemote () _backend = forever $ do
+  str <- expect
+  remoteSend (str :: String)
+
+echoLocal :: LocalProcess ()
+echoLocal = do
+  str <- liftIO $ putStr "# " >> hFlush stdout >> getLine
+  unless (null str) $ do
+    localSend str
+    liftIO $ putStr "Echo: " >> hFlush stdout
+    echo <- localExpect
+    liftIO $ putStrLn echo
+    echoLocal
+</code></pre>
+                    </section>
+                    <section>
+                        <h3>Competitors</h3>
+                        <p class="fragment">Erlang/OTP is the most similar technology</p>
+                        <p class="fragment">Sizeable, mature industry deployments.</p>
+                        <p class="fragment">Has domain-specific features baked in (binary pattern-matching!)</p>
+                        <p class="fragment">Google's Go has a pragmatic take on channels and concurrency.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>My Project(s)</h2>
+                    </section>
+                    <section>
+                        <ul>
+                            <li class="fragment">aws-service-api</li>
+                            <li class="fragment">distributed-process-aws</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>aws-service-api</h3>
+                        <p class="fragment">A Haskell library for managing the creation of 'Cloud Services'</p>
+                        <p class="fragment">Create a VM, find available cloud services, parse AWS output to be usable by Cloud Haskell.</p>
+                    </section>
+                    <section>
+                        <h3>distributed-process-aws</h3>
+                        <p class="fragment">A Haskell library, built on top of aws-service-api</p>
+                        <p class="fragment">Allows AWS to be a Cloud Haskell Service Provider</p>
+                        <p class="fragment">Majority of this was an adaption of the existing distributed-process-azure library to work on AWS</p>
+                    </section>
+                    <section>
+                        <h3>Adaptive Primitives</h3>
+                        <p class="fragment">Two additions to the aws-service-api library over its azure cousin are createVM and shutdownVM</p>
+                        <p class="fragment">These automatically add and remove VMs from a Cloud Service</p>
+                        <p class="fragment">Bubbled up to distributed-process-aws they allow us to expose the following high-level API:</p>
+<pre><code class="haskell fragment" data-trim>
+scaleUp :: CloudService -> Int -> CloudService
+scaleDown :: CloudService -> Int -> CloudService
+</code></pre>
+                    </section>
+                    <section>
+                        <h3>What's The Benefit?</h3>
+                        <ul>
+                            <li class="fragment">AWS is the largest public cloud in the world</li>
+                            <li class="fragment">Previously Cloud Haskell didn't take advantage of cloud's ability to scale</li>
+                            <li class="fragment">Now the system itself can decide how many machines it runs on</li>
+                            <li class="fragment">Opens Cloud Haskell up to a number of adapative applications</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <h2>Demo</h2>
+                </section>
+                <section>
+                    <h3>Future Work</h3>
+                    <p class="fragment">Better AWS primitives</p>
+                    <p class="fragment">Specifically, find a way to expose instance types to higher level programs</p>
+                </section>
+                <section>
+                    <h2>Questions?</h2>
+                </section>
+            </div>
+
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+
+        <script>
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>

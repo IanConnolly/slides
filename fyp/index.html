@@ -85,6 +85,33 @@ where
 </code></pre>
                     </section>
                     <section>
+                        <h3>IO</h3>
+                        <p class="fragment">IO is fundamentally impure, how does it work in Haskell?</p>
+                        <p class="fragment">We represent impure actions as IO actions</p>
+                        <p class="fragment">We compose IO actions using an IO monad</p>
+                        <p class="fragment">Haskell runs the IO action called 'main' with special semantics</p>
+                    </section>
+                    <section>
+                        <h3>An example</h3>
+<pre><code class="haskell fragment" data-trim>
+main :: IO ()
+main = do
+    putStrLn "I get printed to stdout"
+    putStr "I'm a prompt: "
+    input <- getLine
+    putStr "\n"
+    putStrLn input 
+</code></pre>
+                    </section>
+                    <section>
+                        <h3>Other Haskell Features</h3>
+                        <ul>
+                            <li class="fragment">Painless, lightweight pure parallelism</li>
+                            <li class="fragment">Lightweight concurrent threads (with forkIO)</li>
+                            <li class="fragment">Rich type-system at the limit of decidability</li>
+                        </ul>
+                    </section>
+                    <section>
                         <h3>Advantages</h3>
                         <ul>
                             <li class="fragment">Idiomatic Haskell is easy to understand</li>
@@ -185,6 +212,7 @@ echoLocal = do
                         <h3>aws-service-api</h3>
                         <p class="fragment">A Haskell library for managing the creation of 'Cloud Services'</p>
                         <p class="fragment">Create a VM, find available cloud services, parse AWS output to be usable by Cloud Haskell.</p>
+                        <p class="fragment">Majority of the work was here, interfacing with AWS</p>
                     </section>
                     <section>
                         <h3>distributed-process-aws</h3>
@@ -211,10 +239,31 @@ scaleDown :: CloudService -> Int -> CloudService
                             <li class="fragment">Opens Cloud Haskell up to a number of adapative applications</li>
                         </ul>
                     </section>
+                    <section>
+                        <h3>Challenges</h3>
+                        <ul>
+                            <li class="fragment">Azure counterparts are 2 years old and unmaintained</li>
+                            <li class="fragment">Problems with Haskell's ecosystem</li>
+                            <li class="fragment">API Transparency</li>
+                        </ul>
+                    </section>
                 </section>
 
                 <section>
-                    <h2>Demo</h2>
+                    <section>
+                        <h2>Demo</h2>
+                    </section>
+                    <section>
+                        <h3>The Demos</h3>
+                        <p class="fragment">Two demos, Fibonacci and Echo</p>
+                        <p class="fragment">Echo is an expansion of the code you saw earlier</p>
+                        <p class="fragment">Fibonacci demonstrates the serialization of functions</p>
+                    </section>
+                    <section>
+                        <video>
+                            <source src="videos/fypdemo-echo-fib.webm" type="video/webm">
+                        </video>
+                    </section>
                 </section>
                 <section>
                     <h3>Future Work</h3>
